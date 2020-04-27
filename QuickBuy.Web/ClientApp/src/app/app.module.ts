@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { LoginComponent } from './usuario/login/login.componen';
 import { GuardaRotas } from './autorizacao/guarda.rotas';
+import { UsuarioServico } from '../servicos/usuario/usuario.servico';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { GuardaRotas } from './autorizacao/guarda.rotas';
       { path: 'entrar', component: LoginComponent }
     ])
   ],
-  providers: [],
+  providers: [UsuarioServico, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
